@@ -5,7 +5,7 @@ using RentalsProMobileV9.ViewModels.Base;
 
 namespace RentalsProMobileV9.ViewModels.Popups
 {
-    public partial class LeasePopupViewModel : BasePopupViewModel
+    public partial class LeasePopupViewModel : PopupViewModelBase
     {
         public LeasePopupViewModel() : base() { }
 
@@ -22,9 +22,10 @@ namespace RentalsProMobileV9.ViewModels.Popups
 
         [RelayCommand]
         public override async Task SaveAsync()
-            => await IsBusyFor(async () =>
+        {
+            await IsBusyFor(async () =>
             {
-                var response = await _rentalsProRepository.PostLeaseAsync(Lease);
+                var response = await _Repository.PostLeaseAsync(Lease);
                 if (response.Content)
                 {
                     DisplayAlertAsync("Save Successful!", "Lease saved Successfully.");
@@ -35,21 +36,6 @@ namespace RentalsProMobileV9.ViewModels.Popups
                     DisplayAlertAsync("Save Unsuccessful!", "There was an issue saving.");
                 }
             });
-
-        //[RelayCommand]
-        //public override async Task SaveAsync() 
-        //    => await ExecuteAsync(async () =>
-        //    {
-        //        var response = await _rentalsProRepository.PostLeaseAsync(Lease);
-        //        if (response.Content)
-        //        {
-        //            DisplayAlertAsync("Save Successful!", "Lease saved Successfully.");
-        //            await _navigation.PopModalAsync(true);
-        //        }
-        //        else
-        //        {
-        //            DisplayAlertAsync("Save Unsuccessful!", "There was an issue saving.");
-        //        }
-        //    });
+        }
     }
 }

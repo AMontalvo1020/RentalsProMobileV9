@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RentalsProMobileV9.Views.Popups.LeasePopup"
+             xmlns:viewModel="clr-namespace:RentalsProMobileV9.ViewModels.Popups"
+             Title="LeasePopup">
+    <ContentPage.BindingContext>
+        <viewModel:LeasePopupViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4A4A4A"/>
+                <Setter Property="TextColor" Value="#E0E0E0"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="Margin" Value="10,10,10,0"/>
+            </Style>
+            <Style TargetType="Frame">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="Margin" Value="10,1,10,0"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="150"/>
+                <Setter Property="FontFamily" Value="Roboto-Medium"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <Style TargetType="Editor">
+                <Setter Property="BackgroundColor" Value="#333333"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="PlaceholderColor" Value="#BDBDBD" />
+                <Setter Property="Margin" Value="10,0" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="WidthRequest" Value="250"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="Roboto-Regular"/>
+            </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="WidthRequest" Value="250"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="Roboto-Regular"/>
+                <Setter Property="BackgroundColor" Value="#333333"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#202125" Padding="20" Spacing="10">
+                <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Start Date:" />
+                        <DatePicker x:Name="dpStartDate" Date="{Binding Lease.StartDate, Mode=TwoWay}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="End Date:" />
+                        <DatePicker x:Name="dpEndDate" Date="{Binding Lease.EndDate, Mode=TwoWay}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Deposit:" />
+                        <Editor x:Name="txtDeposit" Text="{Binding Lease.SecurityDeposit, Mode=TwoWay}" />
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Pet Deposit:" />
+                        <Editor x:Name="txtPetDeposit" Text="{Binding Lease.PetDeposit, Mode=TwoWay}" />
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Monthly Rent:" />
+                        <Editor x:Name="txtMonthlyRent" Text="{Binding Lease.RentAmount, Mode=TwoWay}" />
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Active:"/>
+                        <Switch IsToggled="{Binding Lease.IsActive, Mode=TwoWay}" />
+                    </StackLayout>
+                </Frame>
+                <StackLayout Orientation="Vertical" Padding="10" Spacing="10" HorizontalOptions="Fill" VerticalOptions="Fill">
+                    <Button Text="Save" Command="{Binding SaveCommand}" />
+                    <Button Text="Cancel" Command="{Binding CancelCommand}" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

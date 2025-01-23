@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RentalsProMobileV9.Views.Tabs.DetailsTab"
+             xmlns:viewModel="clr-namespace:RentalsProMobileV9.ViewModels.Tabs"
+             BackgroundColor="#121212"
+             Title="Details">
+    <ContentPage.BindingContext>
+        <viewModel:DetailsTabViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#4A4A4A"/>
+            <Setter Property="TextColor" Value="#E0E0E0"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HeightRequest" Value="44"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="10,10,10,0"/>
+        </Style>
+        <Style TargetType="Frame">
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="HasShadow" Value="True"/>
+            <Setter Property="Margin" Value="10,1,10,0"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="BackgroundColor" Value="#333333" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="PlaceholderColor" Value="#BDBDBD" />
+            <Setter Property="Margin" Value="10,0" />
+            <Setter Property="HeightRequest" Value="40" />
+        </Style>
+        <Style TargetType="Picker">
+            <Setter Property="BackgroundColor" Value="#333333" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="10,0" />
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="10">
+            <!-- Address Field -->
+            <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Address:" WidthRequest="150" />
+                    <Entry x:Name="txtAddress" WidthRequest="200" Text="{Binding Property.Address.Address ,Mode=TwoWay}" />
+                </StackLayout>
+            </Frame>
+            <!-- City Field -->
+            <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="City:" WidthRequest="150"/>
+                    <Entry x:Name="txtCity" WidthRequest="200" Text="{Binding Property.Address.City ,Mode=TwoWay}" />
+                </StackLayout>
+            </Frame>
+            <!-- State Field -->
+            <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="State:" WidthRequest="150"/>
+                    <Entry x:Name="txtState" WidthRequest="200" Text="{Binding Property.Address.State ,Mode=TwoWay}" />
+                </StackLayout>
+            </Frame>
+            <!-- Zip Field -->
+            <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Zip:" WidthRequest="150"/>
+                    <Entry x:Name="txtZip" WidthRequest="200" Text="{Binding Property.Address.ZipCode ,Mode=TwoWay}" />
+                </StackLayout>
+            </Frame>
+            <!-- Rent Field -->
+            <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Rent:" WidthRequest="150"/>
+                    <Entry x:Name="txtRent" WidthRequest="200" Text="{Binding Property.Lease.RentAmount ,Mode=TwoWay}" />
+                </StackLayout>
+            </Frame>
+            <!-- Property Type Picker -->
+            <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Type:" WidthRequest="150"/>
+                    <Picker Title="Select Type" WidthRequest="200"
+                        x:Name="pxPropertyType"
+                        ItemsSource="{Binding Types}" 
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding Type, Mode=TwoWay}" />
+                </StackLayout>
+            </Frame>
+            <!-- Property Status Picker -->
+            <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Status:" WidthRequest="150"/>
+                    <Picker Title="Select Status" 
+                        x:Name="pxPropertyStatus"
+                        WidthRequest="200"  
+                        ItemsSource="{Binding Statuses}" 
+                        ItemDisplayBinding="{Binding Name}" 
+                        SelectedItem="{Binding Status, Mode=TwoWay}" />
+                </StackLayout>
+            </Frame>
+            <!-- Property Payment Status Picker -->
+            <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Payment Status:" WidthRequest="150"/>
+                    <Picker Title="Select Payment Status" WidthRequest="200" 
+                        x:Name="pxPropertyPaymentStatus" 
+                        ItemsSource="{Binding PaymentStatuses}" 
+                        ItemDisplayBinding="{Binding Name}" 
+                        SelectedItem="{Binding PaymentStatus, Mode=TwoWay}" />
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#333333" CornerRadius="10" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Active:"/>
+                    <Switch IsToggled="{Binding Property.Active, Mode=TwoWay}" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

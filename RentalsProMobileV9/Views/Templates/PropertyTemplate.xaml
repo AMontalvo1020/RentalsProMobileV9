@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RentalsProMobileV9.Views.Templates.PropertyTemplate"
+             xmlns:models="clr-namespace:RentalsProAPIV8.Client.DataTransferObjects;assembly=RentalsProAPIV8.Client"
+             x:DataType="models:PropertyDTO">
+    <ContentView.Content>
+        <Grid Padding="8" ColumnDefinitions="Auto,*">
+            <StackLayout Orientation="Horizontal" Spacing="50">
+                <StackLayout Grid.Column="0" Margin="12">
+                    <Label Text="{Binding Address.Address}" />
+                </StackLayout>
+                <StackLayout Grid.Column="1" Margin="12">
+                    <Label Text="{Binding Status.Name}" />
+                </StackLayout>
+                <StackLayout Grid.Column="2" Margin="12">
+                    <Label Text="{Binding PaymentStatus.Name}" />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

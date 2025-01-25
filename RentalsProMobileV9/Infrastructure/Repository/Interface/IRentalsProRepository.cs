@@ -15,7 +15,7 @@ namespace RentalsProMobileV9.Infrastructure.Repository.Interface
         Task<ApiResponse<string>> PatchPropertyStatusAsync(int propertyID, int statusID);
         Task<ApiResponse<string>> PatchPropertyPaymentStatusAsync(int propertyID, int statusID);
         Task<ApiResponse<LeaseDTO>> PostForLeaseAsync(PostForLeaseParameters parameters);
-        Task<ApiResponse<bool>> PostLeaseAsync(LeaseDTO leaseDTO);
+        Task<ApiResponse<string>> PostLeaseAsync(LeaseDTO leaseDTO);
         Task<ApiResponse<List<UnitDTO>>> GetUnitsAsync(int PropertyID, bool Active);
         Task<ApiResponse<UnitDTO>> GetUnitAsync(int UnitID);
     }

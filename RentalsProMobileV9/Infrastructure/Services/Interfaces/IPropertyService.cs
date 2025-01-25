@@ -5,12 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using RentalsProAPIV8.Client.DataTransferObjects;
 
-namespace RentalsProMobileV9.Services.Services.Interfaces
+namespace RentalsProMobileV9.Infrastructure.Services.Interfaces
 {
     public interface IPropertyService
     {
-        IEnumerable<PropertyDTO> Properties { get; set; }
-        Task<List<PropertyDTO>> GetPropertiesAsync();
-        Task ClearPropertiesAsync();
+
     }
 }

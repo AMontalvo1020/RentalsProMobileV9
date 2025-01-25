@@ -1,6 +1,6 @@
 using RentalsProAPIV7.Maui.Extensions;
+using RentalsProAPIV8.Maui.ViewModels;
 using RentalsProMobileV9.ViewModels;
-using RentalsProMobileV9.ViewModels.Base.Interface;
 
 namespace RentalsProMobileV9.Views
 {

@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using RentalsProMobileV9.Infrastructure;
+using RentalsProAPIV8.Maui.Infrastructure;
 using RentalsProMobileV9.Infrastructure.Repository.Interface;
 
 namespace RentalsProMobileV9.ViewModels.Base.Interface

@@ -74,5 +74,13 @@ namespace RentalsProMobileV9
 
             return mauiAppBuilder;
         }
+
+        public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
+        {
+            //mauiAppBuilder.Services.AddSingleton<DetailPage>();
+            //mauiAppBuilder.Services.AddTransient<PropertiesPage>();
+
+            return mauiAppBuilder;
+        }
     }
 }

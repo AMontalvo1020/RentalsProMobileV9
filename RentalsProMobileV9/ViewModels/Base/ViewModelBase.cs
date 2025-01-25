@@ -2,10 +2,10 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using RentalsProAPIV8.Client.DataTransferObjects;
-using RentalsProMobileV9.Infrastructure;
+using RentalsProAPIV8.Maui.Infrastructure;
+using RentalsProAPIV8.Maui.ViewModels;
 using RentalsProMobileV9.Infrastructure.Repository;
 using RentalsProMobileV9.Infrastructure.Repository.Interface;
-using RentalsProMobileV9.ViewModels.Base.Interface;
 
 namespace RentalsProMobileV9.ViewModels.Base
 {
@@ -55,26 +55,7 @@ namespace RentalsProMobileV9.ViewModels.Base
         {
         }
 
-        public void InitializeDeviceConnection()
-        {
-            try
-            {
-                IsOnline = _deviceState.IsOnline();
-                if (!IsOnline)
-                {
-                    DisplayAlertAsync("No Internet", "You are not currently connected to the internet.");
-                }
-            }
-            catch (Exception ex)
-            {
-                DisplayAlertAsync("Error", $"An error occurred while checking connectivity: {ex.Message}");
-            }
-        }
-
-        public virtual Task InitializeAsync()
-        {
-            return Task.CompletedTask;
-        }
+        public virtual Task InitializeAsync() => Task.CompletedTask;
 
         protected async Task IsBusyFor(Func<Task> unitOfWork)
         {
@@ -97,6 +78,22 @@ namespace RentalsProMobileV9.ViewModels.Base
             if (Application.Current?.MainPage != null)
             {
                 await Application.Current.MainPage.DisplayAlert(title, message, buttonText);
+            }
+        }
+
+        public void InitializeDeviceConnection()
+        {
+            try
+            {
+                IsOnline = _deviceState.IsOnline();
+                if (!IsOnline)
+                {
+                    DisplayAlertAsync("No Internet", "You are not currently connected to the internet.");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayAlertAsync("Error", $"An error occurred while checking connectivity: {ex.Message}");
             }
         }
     }

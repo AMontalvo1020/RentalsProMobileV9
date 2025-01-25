@@ -34,7 +34,7 @@ namespace RentalsProMobileV9.Infrastructure.Repository
         public async Task<ApiResponse<LeaseDTO>> PostForLeaseAsync(PostForLeaseParameters parameters) 
             => await ClientManager.PostForLeaseAsync(parameters);
 
-        public async Task<ApiResponse<bool>> PostLeaseAsync(LeaseDTO leaseDTO) 
+        public async Task<ApiResponse<string>> PostLeaseAsync(LeaseDTO leaseDTO) 
             => await ClientManager.PostLeaseAsync(leaseDTO);
 
         public async Task<ApiResponse<List<UnitDTO>>> GetUnitsAsync(int PropertyID, bool Active) 

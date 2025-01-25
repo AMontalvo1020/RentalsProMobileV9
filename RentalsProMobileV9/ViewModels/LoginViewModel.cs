@@ -5,6 +5,7 @@ using RentalsProAPIV8.Client.DataTransferObjects;
 using RentalsProAPIV8.Client.Parameters;
 using RentalsProAPIV8.Core.Extensions;
 using RentalsProMobileV9.Infrastructure;
+using RentalsProMobileV9.Infrastructure.Services.Interfaces;
 using RentalsProMobileV9.Services.Validations;
 using RentalsProMobileV9.ViewModels.Base;
 using RentalsProMobileV9.Views;
@@ -13,14 +14,9 @@ namespace RentalsProMobileV9.ViewModels
 {
     public partial class LoginViewModel : ViewModelBase
     {
-        [ObservableProperty]
-        private bool _isValid;
-
-        [ObservableProperty]
-        private ValidatableObject<string> username = new();
-
-        [ObservableProperty] 
-        private ValidatableObject<string> password = new();
+        [ObservableProperty] private bool _isValid;
+        [ObservableProperty] private ValidatableObject<string> username = new();
+        [ObservableProperty] private ValidatableObject<string> password = new();
 
         public LoginViewModel() : base() { }
 

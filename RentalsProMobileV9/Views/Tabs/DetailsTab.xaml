@@ -91,7 +91,7 @@
                     <Label Text="Type:" WidthRequest="150"/>
                     <Picker Title="Select Type" WidthRequest="200"
                         x:Name="pxPropertyType"
-                        ItemsSource="{Binding Types}" 
+                        ItemsSource="{Binding Types, Mode=TwoWay}" 
                         ItemDisplayBinding="{Binding Name}"
                         SelectedItem="{Binding Type, Mode=TwoWay}" />
                 </StackLayout>
@@ -103,7 +103,7 @@
                     <Picker Title="Select Status" 
                         x:Name="pxPropertyStatus"
                         WidthRequest="200"  
-                        ItemsSource="{Binding Statuses}" 
+                        ItemsSource="{Binding Statuses, Mode=TwoWay}" 
                         ItemDisplayBinding="{Binding Name}" 
                         SelectedItem="{Binding Status, Mode=TwoWay}" />
                 </StackLayout>
@@ -114,7 +114,7 @@
                     <Label Text="Payment Status:" WidthRequest="150"/>
                     <Picker Title="Select Payment Status" WidthRequest="200" 
                         x:Name="pxPropertyPaymentStatus" 
-                        ItemsSource="{Binding PaymentStatuses}" 
+                        ItemsSource="{Binding PaymentStatuses, Mode=TwoWay}" 
                         ItemDisplayBinding="{Binding Name}" 
                         SelectedItem="{Binding PaymentStatus, Mode=TwoWay}" />
                 </StackLayout>

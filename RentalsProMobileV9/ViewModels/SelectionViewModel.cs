@@ -9,10 +9,7 @@ namespace RentalsProMobileV9.ViewModels
 {
     public partial class SelectionViewModel<T> : ObservableObject
     {
-        [ObservableProperty] 
-        private bool _selected;
-
-        [ObservableProperty] 
-        private T _value;
+        [ObservableProperty] private bool _selected;
+        [ObservableProperty] private T _value;
     }
 }
